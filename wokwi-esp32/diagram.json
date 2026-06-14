@@ -1,0 +1,43 @@
+{
+  "version": 1,
+  "author": "Jenul / Antigravity",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 0, "left": 0, "attrs": {} },
+    { "type": "wokwi-dht22", "id": "dht", "top": -180, "left": -120, "attrs": {} },
+    { "type": "wokwi-led", "id": "led_lamp", "top": -150, "left": 100, "attrs": { "color": "red", "label": "Smart Lamp" } },
+    { "type": "wokwi-relay-module", "id": "relay_fan", "top": 150, "left": -150, "attrs": { "label": "Smart Fan Relay" } },
+    { "type": "wokwi-pir-sensor", "id": "pir", "top": 180, "left": 80, "attrs": { "label": "Motion PIR" } },
+    { "type": "wokwi-servo", "id": "servo_door", "top": -60, "left": 250, "attrs": { "label": "Smart Door Servo" } },
+    { "type": "wokwi-photoresistor-sensor", "id": "ldr", "top": 80, "left": -280, "attrs": { "label": "Light LDR" } },
+    { "type": "wokwi-led", "id": "led_alarm", "top": -80, "left": 100, "attrs": { "color": "yellow", "label": "Alarm Siren" } }
+  ],
+  "connections": [
+    [ "esp:GND.1", "dht:GND", "black", [ "h0" ] ],
+    [ "esp:3V3", "dht:VCC", "red", [ "h0" ] ],
+    [ "esp:15", "dht:SDA", "blue", [ "h0" ] ],
+    
+    [ "esp:GND.2", "led_lamp:C", "black", [ "h0" ] ],
+    [ "esp:2", "led_lamp:A", "red", [ "h0" ] ],
+    
+    [ "esp:GND.2", "led_alarm:C", "black", [ "h0" ] ],
+    [ "esp:14", "led_alarm:A", "yellow", [ "h0" ] ],
+    
+    [ "esp:GND.3", "relay_fan:GND", "black", [ "h0" ] ],
+    [ "esp:5V", "relay_fan:VCC", "red", [ "h0" ] ],
+    [ "esp:4", "relay_fan:IN", "green", [ "h0" ] ],
+    
+    [ "esp:GND.4", "pir:GND", "black", [ "h0" ] ],
+    [ "esp:3V3", "pir:VCC", "red", [ "h0" ] ],
+    [ "esp:12", "pir:OUT", "purple", [ "h0" ] ],
+    
+    [ "esp:GND.5", "servo_door:GND", "black", [ "h0" ] ],
+    [ "esp:5V", "servo_door:VCC", "red", [ "h0" ] ],
+    [ "esp:13", "servo_door:PWM", "orange", [ "h0" ] ],
+    
+    [ "esp:GND.6", "ldr:GND", "black", [ "h0" ] ],
+    [ "esp:3V3", "ldr:VCC", "red", [ "h0" ] ],
+    [ "esp:34", "ldr:AO", "yellow", [ "h0" ] ]
+  ],
+  "dependencies": {}
+}

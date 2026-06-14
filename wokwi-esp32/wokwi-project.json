@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "type": "esp32-arduino",
+  "projectName": "Smart Home SIJA",
+  "libraries": [
+    "PubSubClient@2.8",
+    "DHTesp@1.19.0",
+    "ESP32Servo@1.1.1",
+    "ArduinoJson@7.0.4"
+  ]
+}
